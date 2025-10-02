@@ -39,15 +39,14 @@ class Raytracer {
     const { width, height } = gc
     const { ratio } = gc
 
-    const V = {}        // Viewplane
-    V.mw = 1            // соотношение Vw к Cw
-    V.mh = 1            // соотношение Vh к Ch
-    V.w = width * V.mw  // Vw = Cw * Vmw
-    V.h = height * V.mh // Vh = Ch * Vmh
-    V.mx = V.w / width  // 
-    V.my = V.h / height //
-
-    const FOW = 60 * M
+    const Viewplane = {}                  // Viewplane
+    Viewplane.FOW = 60 * PI / 180         //
+    Viewplane.mWidth = 1                  // соотношение Vw к Cw
+    Viewplane.mHeight = 1                 // соотношение Vh к Ch
+    Viewplane.width = width * V.mWidth    // Vw = Cw * Vmw
+    Viewplane.height = height * V.mHeight // Vh = Ch * Vmh
+    Viewplane.xMod = V.width / width      // Vw / Cw => x + Vw / Cw
+    Viewplane.yMod = V.height / height    // Vh / Ch => y + Vh / Ch
 
     for (let y = yMin; y < yMax; ++y) {
       for (let x = xMin; x < xMax; ++x) {
